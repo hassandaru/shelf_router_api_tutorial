@@ -28,7 +28,9 @@ class FilmApi {
       return Response.notFound('Film not found.');
     });
 
+  
     router.post('/', (Request request) async {
+      //readAsString NO LONGER works or returns the parameters. needs revision.
       final payload = await request.readAsString();
       data.add(json.decode(payload));
       return Response.ok(payload,
